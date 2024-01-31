@@ -17,7 +17,7 @@ h1, h2 {
 
 .entete {
  	font-size: 200%;
- 	text-align: center;
+  	text-align: center;
  }
 
 footer {
@@ -29,4 +29,13 @@ footer {
 #aboutme {
 	margin-left: 5%;
 	margin-right: 5%;
+}
+
+table {
+	border:1px solid black; margin: center;
+	text-align: center;
+}
+
+th {
+	border: 1px solid black; margin: center;
 }

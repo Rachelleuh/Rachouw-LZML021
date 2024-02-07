@@ -30,11 +30,13 @@ footer {
 	margin-left: 5%;
 	margin-right: 5%;
 }
+/*marge de 5 pixels à gauche et à droite*/
 
 table {
 	border:1px solid black; margin: center;
 	text-align: center;
 }
+/*tableau avec une bordure d'un pixel en noir et centrer*/
 
 th {
 	border: 1px solid black; margin: center;

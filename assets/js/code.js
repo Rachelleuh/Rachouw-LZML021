@@ -38,36 +38,81 @@ window.onload = function () {
 
 
 function seg(){ 
-//lorsque j'ajoute la fonction seg() dans le fichier js, la fonction précédente ne fonctionne plus. Donc ma fonction aussi. J'ai essayé d'intégrer la fontion seg() dans l'autre fonction, mais non plus.
-    let texte = document.getElementById("fileDisplayArea").value;  //récup le texte qui a réussi d'être charger
-    let delimiteurs = document.getElementById("delimID").value;  //récup les délimiteurs
+    let fileDisplayArea = document.getElementById("fileDisplayArea").innerText;  //récup le texte qui a réussi d'être charger
+    let del = document.getElementById("delimID").value;  //récup les délimiteurs mais besoin de déspéciliser certains.
 
-    let All_mots = texte.split(/\s+/);
+    fileDisplayArea.replace(/[ ,;’'~\|&#@=`\-\.?!%*$\(\)\[\]{}_:\+«»§\/]/g," ");
+    let All_mots = fileDisplayArea.toLowerCase();
+    All_mots.split(" ");
 
-    //let del = []; 
-    //for (let i = 0; i < delimiteurs.length; i++) {
-    //del.push(delimiteurs[i] + " ");
-    //}   j'ai compris qu'il fallit réutiliser les délimiteurs du fichier html jusqu'au js, mais je n'ai pas réussi après pour les utiliser.
-
-    var freq_mots = []  //dico de frequences
-    All_mots.forEach(function(mot) {
-        if (freq_mots[mot]) {
-            freq_mots[mot]++;
-        } else {
-            freq_mots[mot] = 1;
+    var mots_len = []  //dico de mot par longueur
+    All_mots.forEach(function(mot) {  
+        mots_len.push(All_mots);      
+        if (mot.trim() !== "") {
+            if (mots_len.hasOwnProperty(mot)==false){
+                mots_len[mot.length] = 1;
+            }
+            else {
+                mots_len[mot.length] += 1;
+            }
         }
     });
 
+    var All_mots = mots_len
+
+
     var valeurs = []  //liste vide
-    for (elem of Object.keys(freq_mots)){ // boucle pour classer les frequences
-        if (valeurs.hasOwnProperty(freq_mots[elem])==false){
-            valeurs[freq_mots[elem]] = [elem];
+    for (elem of Object.keys(mots_len)){ // boucle pour classer les frequences
+        if (valeurs.hasOwnProperty(mots_len[elem])==false){
+            valeurs[mots_len[elem]] = [elem];
         }
         else{
-            valeurs[freq_mots[elem]].push(elem);
+            valeurs[mots_len[elem]].push(elem);
         }
     }
 
+    var tableau = document.createElement("tableau"); //j'ai essayé
+    var Header = table.insertRow();
+    var Headerword = Header.insertCell();
+    Headerword.textContent = "Mots";
+    var Headerlen = Header.insertCell();
+    Headerlen.textContent = "longueur";
+
+    valeurs.forEach(function(mot){
+        var row = tableau.insertRow();
+        var cellule = row.insertCell();
+        cellule.textContent = word;
+        var celulle_len = rw.insertCell();
+        celulle_len.textContent = word.length
+    });
+
+
     let display = document.getElementById("page-analysis"); //affichages des résultats dans page-analysis.
-    display.innerHTML = `Le nombre total de mots est ${All_mots.length;}`+`<p>${valeurs;}</p>`
+    display.innerHTML = `<p>Le nombre total de mots est ${All_mots.length;}</p>`+`<p>${tableau}</p>`
+}
+
+
+
+function cooccurrence(mot,longueur) {
+    let fileDisplayArea = document.getElementById("fileDisplayArea").innerText;
+    let pole = document.getElementById('poleID').value;
+    let long = document.getElementById('lgID').value;
+
+    //nettoyage du texte
+    fileDisplayArea.replace(/[ ,;’'~\|&#@=`\-\.?!%*$\(\)\[\]{}_:\+«»§\/]/g," ");
+    let All_mots = fileDisplayArea.toLowerCase();
+    let words = All_mots.split(" ");
+
+
+    var cooccurrent = []; //liste vide
+    for (let i = 0; i < words.length; i++) { //boucle pour rechercher les occurrences d'un mot donné.
+        if (words[i] === word) {
+            for (let j = i - long; j <= i + long; j++) { //
+                if (j >= 0 && j < words.length && j !== i) {
+                    cooccurrent.push(words[j]); // Ajouter le cooccurrent à la liste
+                }
+            }
+        }
+    }
+
 }

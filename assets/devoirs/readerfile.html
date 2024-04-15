@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" href="http://www.tal.univ-paris3.fr/plurital/logo.ico">
     <title>Lecture des données dans un fichier...</title>
-    <script type="text/javascript" language="javascript" src="assets/js/code.js"></script>
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <script type="text/javascript" language="javascript" src="code.js"></script>
+    <link rel="stylesheet" href="monstyle.css" />
 </head>
 
 <body>
@@ -46,8 +46,9 @@
                     <button onclick="alert('bonjour');"><span>Bonjour</span></button>
                     <br />
                     <br />
-                    <button class="submit" onclick="seg()"><span>Segmentation</span></button>
-                    <button class="submit" onclick="alert('Je ne fais rien, changez-moi !');"><span>action 1</span></button>
+                    <button class="submit" onclick="seg();"><span>Segmentation</span></button>
+                    <!-- Je ne fais rien, changez-moi ! == le nom de la fonction -->
+                    <button class="submit" onclick="cooccurrence();" onclick="alert(`Erreur(s) : Vous n'avez pas rentrer de terme ou vous avez rentrer un terme qui n'est pas dans le texte, ou vous n'avez pas indiqué de longueur.`);"><span>Cooccurrents/fréquence</span></button>
                     <button class="submit" onclick="alert('Je ne fais rien, changez-moi !')"><span>action 2</span></button>
                     <button class="submit" onclick="alert('Je ne fais rien, changez-moi !')"><span>action 3</span></button>
                     <button class="submit" onclick="alert('Je ne fais rien, changez-moi !')"><span>action 4</span></button>

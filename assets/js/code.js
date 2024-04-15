@@ -114,5 +114,6 @@ function cooccurrence(mot,longueur) {
             }
         }
     }
-
+    let display = document.getElementById("page-analysis"); //affichages des résultats dans page-analysis.
+    //display.innerHTML = `...`
 }

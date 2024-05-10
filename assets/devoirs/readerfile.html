@@ -43,17 +43,14 @@
                     </small>
                     <br />
                     <br />
-                    <button onclick="alert('bonjour');"><span>Bonjour</span></button>
+                    <button onclick="alert('Bienvenue sur cette page proposant plusieurs fonctionnalités d`analyse de textes. Allez voir le bouton `aide` pour plus de détails.')"><span>Bonjour</span></button>
                     <br />
                     <br />
                     <button class="submit" onclick="seg();"><span>Segmentation</span></button>
-                    <!-- Je ne fais rien, changez-moi ! == le nom de la fonction -->
-                    <button class="submit" onclick="cooccurrence();" onclick="alert(`Erreur(s) : Vous n'avez pas rentrer de terme ou vous avez rentrer un terme qui n'est pas dans le texte, ou vous n'avez pas indiqué de longueur.`);"><span>Cooccurrents/fréquence</span></button>
-                    <button class="submit" onclick="alert('Je ne fais rien, changez-moi !')"><span>action 2</span></button>
-                    <button class="submit" onclick="alert('Je ne fais rien, changez-moi !')"><span>action 3</span></button>
-                    <button class="submit" onclick="alert('Je ne fais rien, changez-moi !')"><span>action 4</span></button>
-                    <button class="submit" onclick="alert('Je ne fais rien, changez-moi !')"><span>action 5</span></button>
-                    <button class="submit" onclick="alert('Je ne fais rien, changez-moi !')"><span>action 6</span></button>
+                    <button class="submit" onclick="Cooccurrents();"><span>Cooccurrents</span></button>
+                    <button class="submit" onclick="graphique();"><span>Visualisation Coocurents</span></button>
+                    <button class="submit" onclick="aide();"><span>Aide</span></button>
+                    <p id="aide"></p>
                 </p>
             </div>
             <div id="logger" style="width:100%"></div>
